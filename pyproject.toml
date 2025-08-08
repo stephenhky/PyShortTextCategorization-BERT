@@ -11,7 +11,7 @@ authors = [
 description = "Short Text Mining"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {text = "MIT"}
-keywords = ["shorttext", "natural language processing", "text mining"]
+keywords = ["shorttext", "natural language processing", "text mining", "BERT"]
 requires-python = ">=3.9"
 classifiers = [
       "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -38,7 +38,7 @@ dependencies = [
 [project.urls]
 Repository = "https://github.com/stephenhky/PyShortTextCategorization-BERT"
 Issues = "https://github.com/stephenhky/PyShortTextCategorization-BERT/issues"
-Documentation = "https://shorttext-bert.readthedocs.io"
+Documentation = "https://pyshorttextcategorization-bert.readthedocs.io/"
 
 [tool.setuptools]
 packages = ["shorttext_bert"]
@@ -46,4 +46,4 @@ zip-safe = false
 package-dir = {"" = "src"}
 
 [project.optional-dependencies]
-test = ["unittest2", "pytest", "simplerepresentations>=0.0.4"]
+test = ["unittest2", "pytest"]
