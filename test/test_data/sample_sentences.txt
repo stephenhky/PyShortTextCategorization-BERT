@@ -1,0 +1,10 @@
+Hello world
+Goodbye world
+This is a test sentence
+BERT is a powerful language model
+The quick brown fox jumps over the lazy dog
+Machine learning is fascinating
+Natural language processing has many applications
+Deep learning models require large datasets
+Python is a versatile programming language
+Unit tests help ensure code quality
