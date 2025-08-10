@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock, patch
 import torch
-from src.shorttext_bert.bertobj import BERTObject
+from shorttext_bert.bertobj import BERTObject
 
 
 class TestBERTObject(unittest.TestCase):
@@ -11,8 +11,8 @@ class TestBERTObject(unittest.TestCase):
         with self.assertRaises(TypeError):
             BERTObject()
 
-    @patch('src.shorttext_bert.bertobj.BertModel')
-    @patch('src.shorttext_bert.bertobj.BertTokenizer')
+    @patch('shorttext_bert.bertobj.BertModel')
+    @patch('shorttext_bert.bertobj.BertTokenizer')
     def test_init_with_default_values(self, mock_tokenizer, mock_model):
         """Test initialization with default values"""
         # Setup mocks
@@ -37,8 +37,8 @@ class TestBERTObject(unittest.TestCase):
         mock_model.from_pretrained.assert_called_with('bert-base-uncased', output_hidden_states=True)
         mock_tokenizer.from_pretrained.assert_called_with('bert-base-uncased', do_lower_case=True)
 
-    @patch('src.shorttext_bert.bertobj.BertModel')
-    @patch('src.shorttext_bert.bertobj.BertTokenizer')
+    @patch('shorttext_bert.bertobj.BertModel')
+    @patch('shorttext_bert.bertobj.BertTokenizer')
     def test_init_with_custom_model_and_tokenizer(self, mock_tokenizer, mock_model):
         """Test initialization with custom model and tokenizer"""
         # Setup mocks
@@ -60,9 +60,9 @@ class TestBERTObject(unittest.TestCase):
         self.assertEqual(bert_obj.model, mock_model_instance)
         self.assertEqual(bert_obj.tokenizer, mock_tokenizer_instance)
 
-    @patch('src.shorttext_bert.bertobj.torch.cuda.is_available')
-    @patch('src.shorttext_bert.bertobj.BertModel')
-    @patch('src.shorttext_bert.bertobj.BertTokenizer')
+    @patch('shorttext_bert.bertobj.torch.cuda.is_available')
+    @patch('shorttext_bert.bertobj.BertModel')
+    @patch('shorttext_bert.bertobj.BertTokenizer')
     def test_init_with_cuda_device_when_available(self, mock_tokenizer, mock_model, mock_cuda_available):
         """Test initialization with CUDA device when available"""
         # Setup mocks
@@ -85,9 +85,9 @@ class TestBERTObject(unittest.TestCase):
         # Assertions
         self.assertEqual(bert_obj.device, torch.device('cuda'))
 
-    @patch('src.shorttext_bert.bertobj.torch.cuda.is_available')
-    @patch('src.shorttext_bert.bertobj.BertModel')
-    @patch('src.shorttext_bert.bertobj.BertTokenizer')
+    @patch('shorttext_bert.bertobj.torch.cuda.is_available')
+    @patch('shorttext_bert.bertobj.BertModel')
+    @patch('shorttext_bert.bertobj.BertTokenizer')
     def test_init_with_cuda_device_when_not_available(self, mock_tokenizer, mock_model, mock_cuda_available):
         """Test initialization with CUDA device when not available"""
         # Setup mocks
@@ -111,8 +111,8 @@ class TestBERTObject(unittest.TestCase):
         # Assertions
         self.assertEqual(bert_obj.device, torch.device('cpu'))
 
-    @patch('src.shorttext_bert.bertobj.BertModel')
-    @patch('src.shorttext_bert.bertobj.BertTokenizer')
+    @patch('shorttext_bert.bertobj.BertModel')
+    @patch('shorttext_bert.bertobj.BertTokenizer')
     def test_init_with_trainable_flag(self, mock_tokenizer, mock_model):
         """Test initialization with trainable flag"""
         # Setup mocks

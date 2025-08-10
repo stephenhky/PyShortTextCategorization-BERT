@@ -1,8 +1,7 @@
 import unittest
 from unittest.mock import Mock, patch
 import torch
-import numpy as np
-from src.shorttext_bert.scorer import BERTScorer
+from shorttext_bert.scorer import BERTScorer
 
 
 class TestBERTScorer(unittest.TestCase):
@@ -11,7 +10,7 @@ class TestBERTScorer(unittest.TestCase):
         """Set up test fixtures before each test method."""
         pass
 
-    @patch('src.shorttext_bert.scorer.WrappedBERTEncoder')
+    @patch('shorttext_bert.scorer.WrappedBERTEncoder')
     def test_init_with_default_values(self, mock_encoder):
         """Test initialization with default values"""
         # Setup mocks
@@ -26,7 +25,7 @@ class TestBERTScorer(unittest.TestCase):
         self.assertIsInstance(scorer.encoder, Mock)
         mock_encoder.assert_called_once()
 
-    @patch('src.shorttext_bert.scorer.WrappedBERTEncoder')
+    @patch('shorttext_bert.scorer.WrappedBERTEncoder')
     def test_init_with_custom_parameters(self, mock_encoder):
         """Test initialization with custom parameters"""
         # Setup mocks
@@ -52,8 +51,8 @@ class TestBERTScorer(unittest.TestCase):
             device='cpu'
         )
 
-    @patch('src.shorttext_bert.scorer.WrappedBERTEncoder')
-    @patch('src.shorttext_bert.scorer.torch.nn.CosineSimilarity')
+    @patch('shorttext_bert.scorer.WrappedBERTEncoder')
+    @patch('shorttext_bert.scorer.torch.nn.CosineSimilarity')
     def test_compute_matrix(self, mock_cosine_similarity, mock_encoder):
         """Test compute_matrix method"""
         # Setup mocks
@@ -84,8 +83,8 @@ class TestBERTScorer(unittest.TestCase):
         self.assertIsInstance(similarity_matrix, torch.Tensor)
         mock_encoder_instance.encode_sentences.assert_called()
 
-    @patch('src.shorttext_bert.scorer.WrappedBERTEncoder')
-    @patch('src.shorttext_bert.scorer.torch.nn.CosineSimilarity')
+    @patch('shorttext_bert.scorer.WrappedBERTEncoder')
+    @patch('shorttext_bert.scorer.torch.nn.CosineSimilarity')
     def test_recall_bertscore(self, mock_cosine_similarity, mock_encoder):
         """Test recall_bertscore method"""
         # Setup mocks
@@ -120,8 +119,8 @@ class TestBERTScorer(unittest.TestCase):
             self.assertIsInstance(recall_score, float)
             self.assertEqual(recall_score, 0.9)
 
-    @patch('src.shorttext_bert.scorer.WrappedBERTEncoder')
-    @patch('src.shorttext_bert.scorer.torch.nn.CosineSimilarity')
+    @patch('shorttext_bert.scorer.WrappedBERTEncoder')
+    @patch('shorttext_bert.scorer.torch.nn.CosineSimilarity')
     def test_precision_bertscore(self, mock_cosine_similarity, mock_encoder):
         """Test precision_bertscore method"""
         # Setup mocks
@@ -156,8 +155,8 @@ class TestBERTScorer(unittest.TestCase):
             self.assertIsInstance(precision_score, float)
             self.assertEqual(precision_score, 0.7)
 
-    @patch('src.shorttext_bert.scorer.WrappedBERTEncoder')
-    @patch('src.shorttext_bert.scorer.torch.nn.CosineSimilarity')
+    @patch('shorttext_bert.scorer.WrappedBERTEncoder')
+    @patch('shorttext_bert.scorer.torch.nn.CosineSimilarity')
     def test_f1score_bertscore(self, mock_cosine_similarity, mock_encoder):
         """Test f1score_bertscore method"""
         # Setup mocks

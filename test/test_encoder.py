@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import Mock, patch
 import torch
 import numpy as np
-from src.shorttext_bert.encoder import WrappedBERTEncoder
+from shorttext_bert.encoder import WrappedBERTEncoder
 
 
 class TestWrappedBERTEncoder(unittest.TestCase):
@@ -11,8 +11,8 @@ class TestWrappedBERTEncoder(unittest.TestCase):
         """Set up test fixtures before each test method."""
         pass
 
-    @patch('src.shorttext_bert.encoder.BertModel')
-    @patch('src.shorttext_bert.encoder.BertTokenizer')
+    @patch('shorttext_bert.encoder.BertModel')
+    @patch('shorttext_bert.encoder.BertTokenizer')
     def test_init_with_default_values(self, mock_tokenizer, mock_model):
         """Test initialization with default values"""
         # Setup mocks
@@ -32,8 +32,8 @@ class TestWrappedBERTEncoder(unittest.TestCase):
         mock_model.from_pretrained.assert_called_with('bert-base-uncased', output_hidden_states=True)
         mock_tokenizer.from_pretrained.assert_called_with('bert-base-uncased', do_lower_case=True)
 
-    @patch('src.shorttext_bert.encoder.BertModel')
-    @patch('src.shorttext_bert.encoder.BertTokenizer')
+    @patch('shorttext_bert.encoder.BertModel')
+    @patch('shorttext_bert.encoder.BertTokenizer')
     def test_init_with_custom_parameters(self, mock_tokenizer, mock_model):
         """Test initialization with custom parameters"""
         # Setup mocks
@@ -60,8 +60,8 @@ class TestWrappedBERTEncoder(unittest.TestCase):
         self.assertEqual(encoder.model, mock_model_instance)
         self.assertEqual(encoder.tokenizer, mock_tokenizer_instance)
 
-    @patch('src.shorttext_bert.encoder.BertModel')
-    @patch('src.shorttext_bert.encoder.BertTokenizer')
+    @patch('shorttext_bert.encoder.BertModel')
+    @patch('shorttext_bert.encoder.BertTokenizer')
     def test_encode_sentences_with_torch_output(self, mock_tokenizer, mock_model):
         """Test encode_sentences method with torch tensor output"""
         # Setup mocks
@@ -98,8 +98,8 @@ class TestWrappedBERTEncoder(unittest.TestCase):
         self.assertIsInstance(tokenized_texts, list)
         self.assertEqual(len(tokenized_texts), 1)
 
-    @patch('src.shorttext_bert.encoder.BertModel')
-    @patch('src.shorttext_bert.encoder.BertTokenizer')
+    @patch('shorttext_bert.encoder.BertModel')
+    @patch('shorttext_bert.encoder.BertTokenizer')
     def test_encode_sentences_with_numpy_output(self, mock_tokenizer, mock_model):
         """Test encode_sentences method with numpy array output"""
         # Setup mocks
@@ -135,8 +135,8 @@ class TestWrappedBERTEncoder(unittest.TestCase):
         self.assertIsInstance(token_embeddings, np.ndarray)
         self.assertIsInstance(tokenized_texts, list)
 
-    @patch('src.shorttext_bert.encoder.BertModel')
-    @patch('src.shorttext_bert.encoder.BertTokenizer')
+    @patch('shorttext_bert.encoder.BertModel')
+    @patch('shorttext_bert.encoder.BertTokenizer')
     def test_encode_sentences_multiple_sentences(self, mock_tokenizer, mock_model):
         """Test encode_sentences method with multiple sentences"""
         # Setup mocks
