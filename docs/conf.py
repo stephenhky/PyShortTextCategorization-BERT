@@ -17,12 +17,12 @@ sys.path.insert(0, os.path.abspath('../src'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'PyShortTextCategorization-BERT'
-copyright = '2025, Author'
-author = 'Author'
+project = 'shorttext-bert'
+copyright = '2025, Kwan Yuet Stephen Ho'
+author = 'Kwan Yuet Stephen Ho'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.2'
 
 
 # -- General configuration ---------------------------------------------------
