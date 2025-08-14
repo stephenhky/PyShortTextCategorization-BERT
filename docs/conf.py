@@ -22,6 +22,7 @@ copyright = '2025, Kwan Yuet Stephen Ho'
 author = 'Kwan Yuet Stephen Ho'
 
 # The full version, including alpha/beta/rc tags
+version = '0.0'
 release = '0.0.2'
 
 
